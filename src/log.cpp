@@ -30,16 +30,13 @@ void Log::Init( std::string logFolder) {
     rotating_sink->set_pattern(filePattern);
     
 
-    std::vector<spdlog::sink_ptr> sinks {stdout_sink, rotating_sink};
-  //  _logger = std::make_shared<spdlog::async_logger>("io-manager", sinks.begin(), sinks.end(), spdlog::thread_pool(), spdlog::async_overflow_policy::block);
+    std::vector<spdlog::sink_ptr> sinks {stdout_sink, rotating_sink};  
     
-    _logger= std::make_shared<spdlog::logger>("io-manager", sinks.begin(), sinks.end());
+    _logger= std::make_shared<spdlog::logger>("slice-logger", sinks.begin(), sinks.end());
     
     
     _logger->set_level(spdlog::level::trace);
     _logger->flush_on(spdlog::level::trace);
-
-    // spdlog::flush_every(std::chrono::seconds(3));
 
 }
 void Log::Init() {
