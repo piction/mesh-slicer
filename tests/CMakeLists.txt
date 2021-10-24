@@ -47,7 +47,7 @@ set(SOURCE_FILES
 add_executable( ${THIS} ${SOURCE_FILES})
 target_include_directories( ${THIS} PRIVATE ${INCLUDE_PATH})
 target_include_directories(${THIS} PRIVATE ${RAPIDJSON_LIB_PATH_INC})
-#target_include_directories(${THIS} PRIVATE ${SPDLOG_LIB_PATH_INC})
+target_include_directories(${THIS} PRIVATE ${SPDLOG_LIB_PATH_INC})
 target_link_libraries(${THIS} PUBLIC 
         gtest_main
         slicerLib

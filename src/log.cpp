@@ -3,9 +3,9 @@
 std::shared_ptr<spdlog::logger> Log::_logger;
 
 void Log::Init( std::string logFolder) {
-        std::string fileName = "io-manager.log";
+    std::string fileName = "slicer.log";
 
-    std::string consolePattern = "[io-manager-%t][%H:%M:%S:%e / %o] [%^%l%$] %v";
+    std::string consolePattern = "[slicer-%t][%H:%M:%S:%e / %o] [%^%l%$] %v";
 
     std::string filePattern = "[%t][%H:%M:%S:%e / %o] [%^%l%$] %v";
     auto max_size = 1048576 * 2; // 2MB size
