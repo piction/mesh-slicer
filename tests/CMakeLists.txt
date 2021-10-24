@@ -21,6 +21,7 @@ endif()
 # settings on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 set(SPDLOG_LIB_PATH_INC ${PROJECT_SOURCE_DIR}/lib/spdlog/include)
+set(GLM_LIB_PATH_INC ${PROJECT_SOURCE_DIR}/lib/glm/glm)
 
 
 # Add googletest directly to our build. This defines
@@ -38,7 +39,8 @@ set(INCLUDE_PATH include
                 ${PROJECT_SOURCE_DIR}/include
                 )
 set(SOURCE_FILES
-                ${SRC_PATH}/empty.tests.cpp                
+                ${SRC_PATH}/empty.tests.cpp           
+                ${SRC_PATH}/pointTransformer.tests     
 
                 )
                 
@@ -48,6 +50,7 @@ add_executable( ${THIS} ${SOURCE_FILES})
 target_include_directories( ${THIS} PRIVATE ${INCLUDE_PATH})
 target_include_directories(${THIS} PRIVATE ${RAPIDJSON_LIB_PATH_INC})
 target_include_directories(${THIS} PRIVATE ${SPDLOG_LIB_PATH_INC})
+target_include_directories(${THIS} PRIVATE ${GLM_LIB_PATH_INC})
 target_link_libraries(${THIS} PUBLIC 
         gtest_main
         slicerLib
