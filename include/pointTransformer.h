@@ -9,13 +9,15 @@
 class PointTransformer {
     public : 
         PointTransformer (glm::vec3 orgin, glm::vec3 target,glm::vec3 offsetToOrigin );
-    
-    public :
-        // Returns a quaternion such that q*start = dest
-        glm::quat RotationBetweenVectors(glm::vec3 start, glm::vec3 dest);
 
         glm::vec3 TransformOriginToTarget(glm::vec3 v);
         glm::vec3 TransformTargetToOrigin(glm::vec3 v);
+    
+    private :
+        // Returns a quaternion such that q*start = dest
+        glm::quat RotationBetweenVectors(glm::vec3 start, glm::vec3 dest);
+
+   
 
         // use boolean to lazy calculate to rotations
         glm::quat _rotateOriginToTarget;
