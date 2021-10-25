@@ -5,6 +5,8 @@
         "limits": "cpp",
         "memory": "cpp",
         "type_traits": "cpp",
-        "*.ipp": "cpp"
+        "*.ipp": "cpp",
+        "fstream": "cpp",
+        "ostream": "cpp"
     }
 }

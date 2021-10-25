@@ -40,10 +40,12 @@ set(INCLUDE_PATH include
                 )
 set(SOURCE_FILES
                 ${SRC_PATH}/empty.tests.cpp           
-                ${SRC_PATH}/pointTransformer.tests     
+                ${SRC_PATH}/pointTransformer.tests.cpp
+                ${SRC_PATH}/wavefrontObjSerializer.tests.cpp
 
                 )
                 
+
 
 
 add_executable( ${THIS} ${SOURCE_FILES})
@@ -55,6 +57,8 @@ target_link_libraries(${THIS} PUBLIC
         gtest_main
         slicerLib
 )
+file(COPY testData DESTINATION .)
+
 add_test(
     NAME ${THIS}
     COMMAND ${THIS}
