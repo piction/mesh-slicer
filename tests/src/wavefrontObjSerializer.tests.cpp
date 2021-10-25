@@ -20,7 +20,7 @@ TEST(wavefrontObjSerializer,DesiredSerialization ){
     LOG_INFO("DesiredSerialization OBJ");
     
     char const *fileName = "testData/bunny.obj";
-    auto result = WavefrontObjSerializer::DeSerialize(fileName);
+    auto result = WavefrontObjSerializer::deserialize(fileName);
 
     EXPECT_TRUE(result.vertices.size() > 10);
     EXPECT_TRUE(result.triangelVertices.size() > 10);
@@ -46,7 +46,7 @@ TEST(wavefrontObjSerializer,Serialize ){
         data.triangelVertices.push_back(tr);
     }
     
-    WavefrontObjSerializer::Serialize(fileName,data);
+    WavefrontObjSerializer::serialize(fileName,data);
 }
 
 
@@ -56,7 +56,7 @@ TEST(wavefrontObjSerializer,DesiredSerializationTransform ){
     
     char const *fileName = "testData/bunny.obj";
     char const *fileNameCopy = "testData/bunny-copy.obj";
-    auto result = WavefrontObjSerializer::DeSerialize(fileName);
+    auto result = WavefrontObjSerializer::deserialize(fileName);
 
 	glm::vec3 vec1(+1.0f,  0.0f,  0.0f);
 	glm::vec3 vec2( 0.0f, +1.0f,  0.0f);
@@ -78,5 +78,5 @@ TEST(wavefrontObjSerializer,DesiredSerializationTransform ){
     }
     result.vertices =transformedList;
 
-     WavefrontObjSerializer::Serialize (fileNameCopy, result);
+     WavefrontObjSerializer::serialize (fileNameCopy, result);
 }

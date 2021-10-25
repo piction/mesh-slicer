@@ -28,6 +28,6 @@ TEST(meshCreatro,createPlane ){
 
     char const *fileName = "testData/planeMesh.obj";
      
-    WavefrontObjSerializer::Serialize(fileName,planeMesh);
+    WavefrontObjSerializer::serialize(fileName,planeMesh);
 
 }

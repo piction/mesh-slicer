@@ -17,8 +17,8 @@ class PlaneDescriptionSerializer {
 
 public:   
     
-    static void Deserialize( const char* fileName, glm::vec3 & planeOrg, glm::vec3 & planeNormal ) {
-        
+    static void deserialize( const char* fileName, glm::vec3 & planeOrg, glm::vec3 & planeNormal ) {
+        LOG_DEBUG(fileName);
         std::ifstream f(fileName);
         std::ostringstream ss;
         ss << f.rdbuf(); // reading data

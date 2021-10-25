@@ -1,8 +1,8 @@
 #include "commandLineParser.h"
-#include "log.h"
+#include <string>
 
 bool CommandLineParser::tryParse(int argc, char **argv) {
-
+    _parsedSuccess=false;
     // Check the number of parameters
     if (argc < 2) {        
         LOG_ERROR("Provide an Obj file and a plane description as arguments");
@@ -23,6 +23,6 @@ bool CommandLineParser::tryParse(int argc, char **argv) {
         LOG_ERROR("The plane description file '" + _filePathOfPlaneDescription +  "' is not a JSON file.");
         return false;
     } 
-
-    return true;
+    _parsedSuccess=true;
+    return _parsedSuccess;
 }

@@ -5,7 +5,7 @@
 
 class CommandLineParser {
     public:
-        CommandLineParser();
+        CommandLineParser(){};
         bool tryParse(int argc, char **argv);
 
 
@@ -19,7 +19,7 @@ class CommandLineParser {
             if (! _parsedSuccess) {
                 LOG_CRITICAL_THROW("Parse before reading the plane description file path")
             }
-            return _filePathOfObj;
+            return _filePathOfPlaneDescription;
         }
     
     private:

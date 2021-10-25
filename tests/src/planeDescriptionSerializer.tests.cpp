@@ -25,7 +25,7 @@ TEST(PlaneDescriptionSerializer,basics ){
     glm::vec3 origin;
     glm::vec3 normal;
 
-    PlaneDescriptionSerializer::Deserialize("testData/plane-description.json", origin, normal);
+    PlaneDescriptionSerializer::deserialize("testData/plane-description.json", origin, normal);
 
     LOG_DEBUG("origin PARSED:" + glm::to_string(origin));
     LOG_DEBUG("normal PARSED:" + glm::to_string(normal));

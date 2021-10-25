@@ -15,7 +15,7 @@ class WavefrontObjSerializer {
 
 public:   
 
-    static void Serialize( const char* fileName, MeshData & meshData ) {
+    static void serialize( const char* fileName, MeshData & meshData ) {
         std::ofstream myfile;
         myfile.open (fileName);
 
@@ -34,7 +34,7 @@ public:
     }
 
 
-    static MeshData DeSerialize(const char* fileName)
+    static MeshData deserialize(const char* fileName)
     {
         MeshData data;
         FILE* file = fopen(fileName, "r");
