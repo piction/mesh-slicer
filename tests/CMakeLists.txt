@@ -42,6 +42,7 @@ set(SOURCE_FILES
                 ${SRC_PATH}/empty.tests.cpp           
                 ${SRC_PATH}/pointTransformer.tests.cpp
                 ${SRC_PATH}/wavefrontObjSerializer.tests.cpp
+                ${SRC_PATH}/meshCreator.tests.cpp
 
                 )
                 

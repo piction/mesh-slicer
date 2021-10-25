@@ -11,6 +11,8 @@ struct TriangleVertices {
     int one;
     int two;
     int three;
+    TriangleVertices(){};
+    TriangleVertices ( int one,int two, int three ) : one(one), two(two), three(three){};
 };
 
 struct MeshData {
