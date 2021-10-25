@@ -21,6 +21,7 @@ endif()
 # settings on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 set(SPDLOG_LIB_PATH_INC ${PROJECT_SOURCE_DIR}/lib/spdlog/include)
+set(RAPIDJSON_LIB_PATH_INC ${PROJECT_SOURCE_DIR}/lib/rapidjson/include)
 set(GLM_LIB_PATH_INC ${PROJECT_SOURCE_DIR}/lib/glm/glm)
 
 
@@ -43,6 +44,7 @@ set(SOURCE_FILES
                 ${SRC_PATH}/pointTransformer.tests.cpp
                 ${SRC_PATH}/wavefrontObjSerializer.tests.cpp
                 ${SRC_PATH}/meshCreator.tests.cpp
+                ${SRC_PATH}/planeDescriptionSerializer.tests.cpp
 
                 )
                 

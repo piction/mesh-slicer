@@ -17,12 +17,9 @@
 
 using namespace glm;
 
-
-
 TEST(meshCreatro,createPlane ){
     Log::Init();
     LOG_INFO("test transformation");
-
 
 	glm::vec3 originOfPlane(+0.015f,  0.0f,  0.021f);
 	glm::vec3 normalOnPlane( 0.60f, +0.45f,  0.30f);

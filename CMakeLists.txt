@@ -19,6 +19,7 @@ find_package(Threads REQUIRED)
 
 
 set( SPDLOG_LIB_PATH_INC ${PROJECT_SOURCE_DIR}/lib/spdlog/include)
+set( RAPIDJSON_LIB_PATH_INC ${PROJECT_SOURCE_DIR}/lib/rapidjson/include)
 set( GLM_LIB_PATH_INC ${PROJECT_SOURCE_DIR}/lib/glm/glm)
 
 set(SRC_PATH ${PROJECT_SOURCE_DIR}/src)
@@ -26,6 +27,7 @@ set(INCLUDE_PATH ${PROJECT_SOURCE_DIR}/include)
 set(SOURCE_FILES 
                 
                 ${SRC_PATH}/pointTransformer.cpp
+                ${SRC_PATH}/commandLineParser.cpp
                 ${SRC_PATH}/log.cpp
                 
 
@@ -36,7 +38,7 @@ add_library(${THISLIB} STATIC ${SOURCE_FILES} )
 #target_precompile_headers(${THISLIB} PUBLIC ${INCLUDE_PATH}/pch.h)
 target_include_directories(${THISLIB} PRIVATE ${INCLUDE_PATH})
 
-
+target_include_directories(${THISLIB} PRIVATE ${RAPIDJSON_LIB_PATH_INC})
 target_include_directories(${THISLIB} PRIVATE ${SPDLOG_LIB_PATH_INC})
 target_include_directories(${THISLIB} PRIVATE ${GLM_LIB_PATH_INC})
 target_link_libraries(${THISLIB} pthread)
@@ -47,7 +49,7 @@ add_executable(${THISPROGRAM} main.cpp )
 target_link_libraries(${THISPROGRAM} ${THISLIB}  )
 
 
-
+target_include_directories(${THISPROGRAM} PRIVATE ${RAPIDJSON_LIB_PATH_INC})
 target_include_directories(${THISPROGRAM} PRIVATE ${SPDLOG_LIB_PATH_INC})
 target_include_directories(${THISPROGRAM} PRIVATE ${GLM_LIB_PATH_INC})
 target_include_directories(${THISPROGRAM} PRIVATE ${INCLUDE_PATH})
