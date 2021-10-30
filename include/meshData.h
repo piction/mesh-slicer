@@ -10,12 +10,17 @@
 struct TriangleVertices {
     int one;
     int two;
-    int three;
+    int three;    
     TriangleVertices(){};
     TriangleVertices ( int one,int two, int three ) : one(one), two(two), three(three){};
 };
 
-struct MeshData {
-    std::vector<glm::vec3> vertices;
-    std::vector<TriangleVertices> triangelVertices;
+class MeshData {
+    public:
+        std::vector<glm::vec3> vertices;
+        std::vector<TriangleVertices> triangelVertices;
+
+        void removeUnusedVertices ();
+       // void transformMesh(std::function<glm::vec3  (glm::vec3 &)>);
+        
 };

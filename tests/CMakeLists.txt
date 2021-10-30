@@ -45,6 +45,8 @@ set(SOURCE_FILES
                 ${SRC_PATH}/wavefrontObjSerializer.tests.cpp
                 ${SRC_PATH}/meshCreator.tests.cpp
                 ${SRC_PATH}/planeDescriptionSerializer.tests.cpp
+                ${SRC_PATH}/meshDate.tests.cpp
+                ${SRC_PATH}/linePlaneIntersectionCache.tests.cpp
 
                 )
                 

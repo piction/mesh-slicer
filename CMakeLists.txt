@@ -29,7 +29,7 @@ set(SOURCE_FILES
                 ${SRC_PATH}/pointTransformer.cpp
                 ${SRC_PATH}/commandLineParser.cpp
                 ${SRC_PATH}/log.cpp
-                
+                ${SRC_PATH}/meshData.cpp
 
                 )
 

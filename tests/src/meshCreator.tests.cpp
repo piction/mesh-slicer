@@ -24,7 +24,7 @@ TEST(meshCreatro,createPlane ){
 	glm::vec3 originOfPlane(+0.015f,  0.0f,  0.021f);
 	glm::vec3 normalOnPlane( 0.60f, +0.45f,  0.30f);
 
-    auto planeMesh = MeshCreator::CreateMeshOfPlane(0.3,originOfPlane,normalOnPlane);
+    auto planeMesh = MeshCreator::createMeshOfPlane(0.3,originOfPlane,normalOnPlane);
 
     char const *fileName = "testData/planeMesh.obj";
      

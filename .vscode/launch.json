@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/debug/slicer",
-            "args": [],
+            "args": ["tests/testData/bunny.obj","tests/testData/plane-description.json"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/debug",
             "environment": [],
@@ -24,11 +24,30 @@
             ]
         },
         {
+            "name": "Debug-specific-tests",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/debug/tests/slicerTests", 
+            "args": ["--gtest_filter=linePlaneIntersectionCache.*"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/debug/tests",
+            "environment": [],
+            "externalConsole": false,            
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "Debug-tests",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/debug/tests/slicerTests", 
-            "args": ["--gtest_filter=PlaneDescriptionSerializer.basics"],
+            "args": ["--gtest_filter=*.*"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/debug/tests",
             "environment": [],

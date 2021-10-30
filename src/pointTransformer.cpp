@@ -3,32 +3,33 @@
 using namespace glm;
 
 
-PointTransformer::PointTransformer (glm::vec3 orgin, glm::vec3 target,glm::vec3 offsetToOrigin ):
-_origin ( orgin ),_target ( target ),_offsetToOrigin ( offsetToOrigin) {
+PointTransformer::PointTransformer (glm::vec3 orginOrientation, glm::vec3 targetOrientation,glm::vec3 offsetToOrigin ):
+_origin ( orginOrientation ),_target ( targetOrientation ),_offsetToOrigin ( offsetToOrigin) {
 
 }
 
-glm::vec3 PointTransformer::TransformOriginToTarget(glm::vec3 v) {
+glm::vec3 PointTransformer::transformOriginToTarget(glm::vec3  v) {
 
     if ( !_rotateOriginToTargetIsSet) {
-        _rotateOriginToTarget = RotationBetweenVectors(_origin, _target);
+        _rotateOriginToTarget = rotationBetweenVectors(_origin, _target);
         }
     _rotateOriginToTarget;
-    return _rotateOriginToTarget * (v-_offsetToOrigin);
+    return (_rotateOriginToTarget * (v-_offsetToOrigin));
+	
 
 }
-glm::vec3 PointTransformer::TransformTargetToOrigin(glm::vec3 v){
+glm::vec3 PointTransformer::transformTargetToOrigin(glm::vec3  v){
       if ( !_rotateTargetToOriginIsSet) {
-       _rotateTargetToOrigin = RotationBetweenVectors(_target,_origin);
+       _rotateTargetToOrigin = rotationBetweenVectors(_target,_origin);
     }    
-    return (_rotateTargetToOrigin * v) + _offsetToOrigin;
+    return ((_rotateTargetToOrigin * v) + _offsetToOrigin);
 }
 
 
 
 
     
-glm::quat PointTransformer::RotationBetweenVectors(glm::vec3 start, glm::vec3 dest){
+glm::quat PointTransformer::rotationBetweenVectors(glm::vec3  start, glm::vec3  dest){
     start = normalize(start);
 	dest = normalize(dest);
 	

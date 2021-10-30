@@ -48,6 +48,13 @@ TEST(wavefrontObjSerializer,Serialize ){
     
     WavefrontObjSerializer::serialize(fileName,data);
 }
+TEST(wavefrontObjSerializer,SerializeNoData ){
+    Log::Init();
+    LOG_INFO("Serialize mesh to OBJ");
+    char const *fileName = "testData/serialize-no-data-output.obj";
+    MeshData data;        
+    WavefrontObjSerializer::serialize(fileName,data);
+}
 
 
 TEST(wavefrontObjSerializer,DesiredSerializationTransform ){
@@ -65,18 +72,30 @@ TEST(wavefrontObjSerializer,DesiredSerializationTransform ){
 
     PointTransformer transformer (vec1, vec2,trans);
     
-    glm::vec3 transformedToTarget  = transformer.TransformOriginToTarget(vecToTransform);
-    glm::vec3 transformedToBack  = transformer.TransformTargetToOrigin(transformedToTarget);
+    glm::vec3 transformedToTarget  = transformer.transformOriginToTarget(vecToTransform);
+    glm::vec3 transformedToBack  = transformer.transformTargetToOrigin(transformedToTarget);
     LOG_INFO("my vec" + glm::to_string(vecToTransform));
     LOG_INFO("my tranformed vector" + glm::to_string(transformedToTarget));
     LOG_INFO("my oringal vector" + glm::to_string(transformedToBack));
 
     std::vector<glm::vec3> transformedList;
     for ( auto & v : result.vertices) {
-        glm::vec3 transformedToTarget  = transformer.TransformOriginToTarget(v);
+        glm::vec3 transformedToTarget  = transformer.transformOriginToTarget(v);
         transformedList.push_back(transformedToTarget);
     }
     result.vertices =transformedList;
-
      WavefrontObjSerializer::serialize (fileNameCopy, result);
+}
+
+
+
+TEST(wavefrontObjSerializer,cleanUpMeshAndSave ){
+    Log::Init();
+    LOG_INFO("DesiredSerialization OBJ");
+    
+    char const *fileName = "testData/half-bunny-duplicates.obj";
+    char const *fileNameOut = "testData/bunny-duplicates-output.obj";
+    auto result = WavefrontObjSerializer::deserialize(fileName);
+    result.removeUnusedVertices();
+     WavefrontObjSerializer::serialize (fileNameOut, result);
 }

@@ -17,12 +17,13 @@ public:
 
     static void serialize( const char* fileName, MeshData & meshData ) {
         std::ofstream myfile;
+
         myfile.open (fileName);
 
             myfile << "# OBJ file format with ext .obj" << std::endl;
             myfile << "# vertex count = " << std::to_string(meshData.vertices.size()) <<std::endl; 
             myfile << "# face count = " << std::to_string(meshData.triangelVertices.size()) << std::endl;
-
+     
             for (auto & v : meshData.vertices) {
                 myfile <<"v " <<std::scientific << v.x << " " << v.y << " " << v.z << std::endl;
             }

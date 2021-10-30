@@ -30,8 +30,8 @@ TEST(point_transformer,basics ){
 
     PointTransformer transformer (vec1, vec2,trans);
     
-    glm::vec3 transformedToTarget  = transformer.TransformOriginToTarget(vecToTransform);
-    glm::vec3 transformedToBack  = transformer.TransformTargetToOrigin(transformedToTarget);
+    glm::vec3 transformedToTarget  = transformer.transformOriginToTarget(vecToTransform);
+    glm::vec3 transformedToBack  = transformer.transformTargetToOrigin(transformedToTarget);
     LOG_INFO("my vec" + glm::to_string(vecToTransform));
     LOG_INFO("my tranformed vector" + glm::to_string(transformedToTarget));
     LOG_INFO("my oringal vector" + glm::to_string(transformedToBack));
