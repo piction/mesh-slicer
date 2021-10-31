@@ -41,7 +41,6 @@ glm::quat PointTransformer::rotationBetweenVectors(glm::vec3  start, glm::vec3  
 		// there is no "ideal" rotation axis
 		// So guess one; any will do as long as it's perpendicular to start
 		// This implementation favors a rotation around the Up axis,
-		// since it's often what you want to do.
 		rotationAxis = cross(vec3(0.0f, 0.0f, 1.0f), start);
 		if (length2(rotationAxis) < 0.01 ) // bad luck, they were parallel, try again!
 			rotationAxis = cross(vec3(1.0f, 0.0f, 0.0f), start);

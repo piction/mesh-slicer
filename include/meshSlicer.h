@@ -2,11 +2,7 @@
 
 #include <memory>
 
-#include <glm/gtc/quaternion.hpp>
-#include <glm/gtx/quaternion.hpp>
-#include <glm/gtx/euler_angles.hpp>
-#include <glm/gtx/norm.hpp>
-
+#include <glm/glm.hpp>
 #include "log.h"
 #include "meshData.h"
 #include "pointTransformer.h"

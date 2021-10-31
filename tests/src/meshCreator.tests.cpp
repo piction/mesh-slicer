@@ -17,7 +17,7 @@
 
 using namespace glm;
 
-TEST(meshCreatro,createPlane ){
+TEST(meshCreator,createPlane ){
     Log::Init();
     LOG_INFO("test transformation");
 

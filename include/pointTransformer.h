@@ -19,7 +19,7 @@ class PointTransformer {
 
    
 
-        // use boolean to lazy calculate to rotations
+        // use boolean to lazy calculate rotations
         glm::quat _rotateOriginToTarget;
         bool _rotateOriginToTargetIsSet;
         glm::quat _rotateTargetToOrigin;

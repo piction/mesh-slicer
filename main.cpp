@@ -5,11 +5,9 @@
 #include "wavefrontObjSerializer.h"
 #include "planeDescriptionSerializer.h"
 #include "meshCreator.h"
-#include "utils.h"
-#include "linePlaneIntersectionCache.h"
 #include "meshSlicer.h"
 
-#include <map>
+
 #include <memory>
 #include <glm/glm.hpp>
 
@@ -39,9 +37,6 @@ int main(int argc, char* argv[])
     
     LOG_DEBUG( "Original Mesh => vertices: " + std::to_string(originalMesh.vertices.size()) + ", triangles: " +std::to_string(originalMesh.triangelVertices.size())) ;
     LOG_DEBUG( "Plane=> origin:[" + glm::to_string(planeOrigin) + "], normal:[" + glm::to_string(planeNormal) + "]");
-
-    
-   
     
     // create a mesh of the cutting plane as an easy validator 
     if ( shouldCreateDebugCuttingPlane) {   
