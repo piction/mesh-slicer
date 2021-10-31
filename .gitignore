@@ -45,8 +45,5 @@ build/*
 .vscode/ipch/*
 *.ipch
 
-
-#clion
-.idea/*
-cmake-build-debug/*
-tests/cmake-build-debug/*
+# testData
+!tests/testData/*
