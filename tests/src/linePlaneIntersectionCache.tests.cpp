@@ -18,7 +18,7 @@ TEST(linePlaneIntersectionCache,basics ){
     {
         sut.addToCache(1,1,11);
     }
-    catch(const std::exception& e)
+    catch(...)
     {
         hasThrown = true;
     }

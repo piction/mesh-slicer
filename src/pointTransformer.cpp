@@ -8,7 +8,7 @@ _origin ( orginOrientation ),_target ( targetOrientation ),_offsetToOrigin ( off
 
 }
 
-glm::vec3 PointTransformer::transformOriginToTarget(glm::vec3  v) {
+glm::vec3 PointTransformer::transformOriginToTarget(const glm::vec3 & v) {
 
     if ( !_rotateOriginToTargetIsSet) {
         _rotateOriginToTarget = rotationBetweenVectors(_origin, _target);
@@ -18,7 +18,7 @@ glm::vec3 PointTransformer::transformOriginToTarget(glm::vec3  v) {
 	
 
 }
-glm::vec3 PointTransformer::transformTargetToOrigin(glm::vec3  v){
+glm::vec3 PointTransformer::transformTargetToOrigin(const glm::vec3 & v){
       if ( !_rotateTargetToOriginIsSet) {
        _rotateTargetToOrigin = rotationBetweenVectors(_target,_origin);
     }    

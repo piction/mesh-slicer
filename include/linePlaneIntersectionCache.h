@@ -16,8 +16,8 @@ class LinePlaneIntersectionCache {
     public:
         LinePlaneIntersectionCache(){};
         bool tryRetrieveFromCache (int indexTop, int indexBottom,  int & cacheIndexValue) {
-            if (indexTop == indexBottom) {
-                throw std::runtime_error( "indexTop and indexBottom CANNOT be equal for retrieving from cache");
+            if (indexTop == indexBottom) {                
+                LOG_CRITICAL_THROW("indexTop and indexBottom CANNOT be equal for retrieving from cache");
             }
 
             if ( _cache.find (indexTop) == _cache.end ()) {
@@ -27,12 +27,11 @@ class LinePlaneIntersectionCache {
                 return false;
             }
             cacheIndexValue = _cache[indexTop][indexBottom];
-            LOG_DEBUG("Retrieve at " + std::to_string (indexTop)  + "," + std::to_string (indexBottom));
             return true;
         }
         void addToCache (int indexTop, int indexBottom, int cacheIndexValue) {
             if (indexTop == indexBottom) {
-                throw std::runtime_error( "indexTop and indexBottom CANNOT be equal for adding to cache");
+                LOG_CRITICAL_THROW("indexTop and indexBottom CANNOT be equal for adding to cache");                
             }
             if ( _cache.find (indexTop) == _cache.end ()) {
                 std::map<int,int> newIndexTop;

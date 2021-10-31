@@ -30,7 +30,7 @@ set(SOURCE_FILES
                 ${SRC_PATH}/commandLineParser.cpp
                 ${SRC_PATH}/log.cpp
                 ${SRC_PATH}/meshData.cpp
-
+                ${SRC_PATH}/meshSlicer.cpp
                 )
 
 

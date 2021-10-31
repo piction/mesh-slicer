@@ -1,14 +1,13 @@
 #include "meshData.h"
-#include <map>
-#include <functional>
-
 
 using namespace glm;
 
+// function to remove all vertices that are not used by any polygon
 void MeshData::removeUnusedVertices() {
     
     int verticesCounter=1;
-    std::vector<int> lookup(vertices.size(),-1);
+    
+    std::vector<int> lookup(vertices.size() + 1,-1);
     std::vector<vec3> filteredVertices;
      
     auto renameFnc = [&](int trianglePointIndx)-> int{
@@ -21,6 +20,9 @@ void MeshData::removeUnusedVertices() {
         } else {
             newIndx= lookup[trianglePointIndx];
         }
+        if ( newIndx > vertices.size() + 1 ) {
+            LOG_CRITICAL_THROW("New index cannot be bigger than original!");            
+        }
         return newIndx;
     };    
 
@@ -30,4 +32,10 @@ void MeshData::removeUnusedVertices() {
         v.three = renameFnc(v.three);
     }
     vertices = filteredVertices;
+}
+
+void MeshData::transformMesh(std::function<glm::vec3 (glm::vec3 &)> transformVerticeFn) {
+    for ( auto & v : vertices ) {
+            v = transformVerticeFn(v);
+    }
 }

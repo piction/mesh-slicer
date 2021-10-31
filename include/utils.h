@@ -8,13 +8,14 @@
 #include <vector>
 #include <cmath> 
 
+
 #include "meshData.h"
 #include "pointTransformer.h"
 
 
 class LineUtils {
     public:
-    static glm::vec3 getIntersectionWithXYplane(const glm::vec3 lineEnd, const glm::vec3 lineStart) {
+    static glm::vec3 getIntersectionWithXYplane(const glm::vec3 & lineEnd, const glm::vec3 & lineStart) {
         auto delta = lineEnd-lineStart;
         
         double xCross = abs(delta.x) < 1e-12 ? lineEnd.x : (((delta.z / delta.x * lineStart.x) - lineStart.z ) / (delta.z/delta.x));
@@ -22,3 +23,4 @@ class LineUtils {
         return glm::vec3(xCross,yCross,0);
     }
 };
+

@@ -10,8 +10,8 @@ class PointTransformer {
     public : 
         PointTransformer (glm::vec3 orginOrientation, glm::vec3 targetOrientation,glm::vec3 offsetToOrigin );
 
-        glm::vec3 transformOriginToTarget(glm::vec3 v);
-        glm::vec3 transformTargetToOrigin(glm::vec3 v);
+        glm::vec3 transformOriginToTarget(const glm::vec3 & v);
+        glm::vec3 transformTargetToOrigin(const glm::vec3 & v);
     
     private :
         // Returns a quaternion such that q*start = dest

@@ -6,6 +6,10 @@
 #include <glm/gtx/norm.hpp>
 
 #include <vector>
+#include <map>
+#include <functional>
+#include <exception>
+#include "log.h"
 
 struct TriangleVertices {
     int one;
@@ -21,6 +25,6 @@ class MeshData {
         std::vector<TriangleVertices> triangelVertices;
 
         void removeUnusedVertices ();
-       // void transformMesh(std::function<glm::vec3  (glm::vec3 &)>);
+        void transformMesh(std::function<glm::vec3 (glm::vec3 &)> transformVerticeFn);
         
 };
